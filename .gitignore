@@ -1,0 +1,6 @@
+Gemfile.lock
+.bundle/
+vender/
+cookie/
+src/app_answer.rb
+src/app2.rb
