@@ -1,2 +1,2 @@
-require_relative './src/app3'
+require_relative './src/app'
 run MainApp
