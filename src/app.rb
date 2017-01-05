@@ -7,8 +7,9 @@ class MainApp < Sinatra::Base
   end
 
   get '/start_session' do
-    session[:started] = true
-    "Session ID: #{session.id}"
+    session[:data] = params[:data]
+    session[:data_length] = params[:data].length
+    "Session ID: #{session.id}\nData: #{session[:data]}\nLength: #{session[:data_length]}\n"
   end
 
   get '/destroy_session' do
@@ -18,8 +19,8 @@ class MainApp < Sinatra::Base
   end
 
   get '/check_session' do
-    if session[:started] then
-      "Session ID: #{session.id}"
+    if session[:data] then
+      "Session ID: #{session.id}\nData: #{session[:data]}\nLength: #{session[:data_length]}\n"
     else
       "The session is empty.\n"
     end
