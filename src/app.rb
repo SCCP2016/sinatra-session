@@ -8,20 +8,20 @@ class MainApp < Sinatra::Base
 
   get '/start_session' do
     session[:started] = true
-    "A session has stared.\nYour session ID is \"#{session.id}\""
+    "Session ID: #{session.id}"
   end
 
   get '/destroy_session' do
     destroied_session_id = session.id
     session.destroy
-    "The session (#{destroied_session_id}) has destroied.\n"
+    "Destroied session ID: #{destroied_session_id}\n"
   end
 
   get '/check_session' do
     if session[:started] then
-      "You started the session.\nYour session ID is \"#{session.id}\""
+      "Session ID: #{session.id}"
     else
-      "Did you start a session?\n"
+      "The session is empty.\n"
     end
   end
 
