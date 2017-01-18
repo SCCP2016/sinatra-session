@@ -1,10 +1,7 @@
 require 'sinatra'
 
 class MainApp < Sinatra::Base
-  configure do
-    # セッション管理を有効にする
-    enable :sessions
-  end
+  use Rack::Session::Pool, expire_after: 2_592_000
 
   get '/start_session' do
     session[:data] = params[:data]
